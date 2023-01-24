@@ -20,9 +20,13 @@ for (int i = 0; i < n; i++)
         }
         Console.WriteLine(sumNumberLeft);
     }
+    else if (numberRight == 0 && numberRight == 0)
+    {
+        Console.WriteLine(0);
+    }
     else
     {
-        while (numberRight > 0)
+        while (BigInteger.Abs(numberRight) > 0)
         {
             sumNumberRight += Math.Abs((int)(numberRight % 10));
             numberRight /= 10;
