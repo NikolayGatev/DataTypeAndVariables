@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 
 int n = int.Parse(Console.ReadLine());
 for (int i = 0; i < n; i++)
@@ -13,9 +13,9 @@ for (int i = 0; i < n; i++)
     int sumNumberRight = 0;
     if (numberLeft > numberRight)
     {
-        while (numberLeft > 0)
+        while (BigInteger.Abs(numberLeft) > 0)
         {
-            sumNumberLeft += (int)(numberLeft % 10);
+            sumNumberLeft += Math.Abs((int)(numberLeft % 10));
             numberLeft /= 10;
         }
         Console.WriteLine(sumNumberLeft);
@@ -24,7 +24,7 @@ for (int i = 0; i < n; i++)
     {
         while (numberRight > 0)
         {
-            sumNumberRight += (int)(numberRight % 10);
+            sumNumberRight += Math.Abs((int)(numberRight % 10));
             numberRight /= 10;
         }
 
