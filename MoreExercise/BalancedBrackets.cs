@@ -1,32 +1,31 @@
-﻿byte countSymbols = byte.Parse(Console.ReadLine());
+byte countSymbols = byte.Parse(Console.ReadLine());
 string balanse = "";
 string newString;
-char curentSymbol;
 Boolean firstOpenBracket = false;
 for (int i = 0; i < countSymbols; i++)
 {
     newString = Console.ReadLine();
-    if (char.TryParse(newString, out _))
+    if (firstOpenBracket == false)
     {
-        curentSymbol = char.Parse(newString);
-        if (firstOpenBracket == false)
+        if (newString == ")")
         {
-            if (curentSymbol == 41)
-            {                
-                balanse = "UNBALANCED";
-                break;
-            }
-            else if (curentSymbol == 40)
-            {
-                firstOpenBracket = true;
-                balanse = "UNBALANCED";
-            }
+            balanse = "UNBALANCED";
+            break;
         }
-        if (firstOpenBracket == true && curentSymbol == 41)
+        else if (newString == "(")
         {
-            firstOpenBracket = false;
-            balanse = "BALANCED";
+            firstOpenBracket = true;
+            balanse = "UNBALANCED";
         }
     }
+    else if (firstOpenBracket == true && newString == "(")
+    {
+    break;
+    }
+    if (firstOpenBracket == true && newString == ")")
+    {
+        firstOpenBracket = false;
+        balanse = "BALANCED";
+    }
 }
-Console.WriteLine(balanse);
+    Console.WriteLine(balanse);
